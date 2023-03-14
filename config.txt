@@ -1,0 +1,2 @@
+run:
+	python3.7 -m pip install requirements.txt
