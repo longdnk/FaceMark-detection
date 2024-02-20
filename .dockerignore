@@ -1,0 +1,11 @@
+.idea
+dataset
+config.txt
+deploy.prototxt
+docker-compose.yaml
+dockerfile
+Makefile
+plot.png
+production.txt
+README.md
+res10_300x300_ssd_iter_140000.caffemodel
