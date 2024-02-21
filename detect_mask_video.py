@@ -8,6 +8,8 @@ import imutils
 import time
 import cv2
 import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
+
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
     # grab the dimensions of the frame and then construct a blob
@@ -82,7 +84,7 @@ maskNet = load_model("mask_detector.model")
 # initialize the video stream
 print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
-vs.stream.release()
+# vs.stream.release()
 
 # loop over the frames from the video stream
 while True:
@@ -90,7 +92,7 @@ while True:
     # to have a maximum width of 400 pixels
     frame = vs.read()
     if frame is not None:
-        frame = imutils.resize(frame, width=1000, height=1000)
+        frame = imutils.resize(frame, width=1200, height=1200)
 
         # detect faces in the frame and determine if they are wearing a
         # face mask or not
@@ -105,7 +107,7 @@ while True:
 
             # determine the class label and color we'll use to draw
             # the bounding box and text
-            label = "Mask" if mask > withoutMask else "No Mask"
+            label = "Mask" if mask > withoutMask else "No mask"
             color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 
             # include the probability in the label

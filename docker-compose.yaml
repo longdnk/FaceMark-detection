@@ -6,10 +6,3 @@ services:
       - /dev/video1:/dev/video1
     build: .
     container_name: face_mask_detect_model 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: ["gpu"]
